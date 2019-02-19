@@ -305,8 +305,8 @@ To date, most defenses to adversarial examples typically restrict the adversary 
 making ``small'' changes to inputs from the data-generating
 distribution (e.g. inputs from the test set).
 %
-Formally, for some natural input $x$ and similarity metric $\
-mathcal{D}$, $x'$ is considered a valid adversarial example if
+Formally, for some natural input $x$ and similarity metric
+$\mathcal{D}$, $x'$ is considered a valid adversarial example if
 $\mathcal{D}(x, x')\leq \epsilon$ for some small $\epsilon$ and $x'$ is
 misclassified\footnote{
   It is often required that the original input $x$ is classified
@@ -341,7 +341,7 @@ Nevertheless, such a rigorous and precise definition of the
 adversary's capability, leads to well-defined measures of
 adversarial robustness that are, in principle, computable.
 %
-For example, given a model $f(\cdot$, one common way to define
+For example, given a model $f(\cdot)$, one common way to define
 robustness is the worst-case loss $L$ for a given perturbation budget,
 \[
 \mathop{\mathbb{E}}_{(x,y) \sim \mathcal{X}}\bigg[
