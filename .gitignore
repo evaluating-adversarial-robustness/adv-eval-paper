@@ -1,0 +1,16 @@
+# output
+*.dvi
+*.ps
+# purposefully not ignoring *.pdf
+abstract.txt
+
+# intermediate files
+*.aux
+*.log
+*.blg
+*.bbl
+*.ent
+*.out
+*.gz
+*.fls
+*.fdb_latexmk
