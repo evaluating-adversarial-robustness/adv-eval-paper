@@ -30,9 +30,9 @@ We welcome any contributions to the paper through both issues and pull requests.
 - Alexey Kurakin (Google Brain)
 
 NOTE: contributors are ordered according to the amount of their contribution
-to the text of the paper, similarly to
+to the text of the paper, similar to the
 [Cleverhans tech report](https://github.com/tensorflow/cleverhans#authors).
-List of contributors could be expanded and order
+List of contributors may be expanded and order
 may change with the new revisions of the paper.
 
 ## Changelog
