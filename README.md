@@ -27,6 +27,13 @@ We welcome any contributions to the paper through both issues and pull requests.
 - Dimitris Tsipras (MIT)
 - Ian Goodfellow (Google Brain)
 - Aleksander Madry (MIT)
+- Alexey Kurakin (Google Brain)
+
+NOTE: contributors are ordered according to the amount of their contribution
+to the text of the paper, similarly to
+[Cleverhans tech report](https://github.com/tensorflow/cleverhans#authors).
+List of contributors could be expanded and order
+may change with the new revisions of the paper.
 
 ## Changelog
 
