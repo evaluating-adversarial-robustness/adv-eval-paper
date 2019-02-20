@@ -1,0 +1,10 @@
+language: generic
+dist: xenial
+addons:
+  apt:
+    update: true
+    packages:
+      - texlive-latex-extra
+      - texlive-fonts-recommended
+script:
+  - make paper.pdf
