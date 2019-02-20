@@ -1,7 +1,7 @@
 # output
 *.dvi
 *.ps
-# purposefully not ignoring *.pdf
+*.pdf
 abstract.txt
 
 # intermediate files
