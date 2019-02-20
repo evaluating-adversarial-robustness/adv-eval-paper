@@ -6,6 +6,7 @@ DEPS := \
 
 
 LATEX  := pdflatex
+LATEXOPTS := -interaction nonstopmode
 BIBTEX := bibtex
 PANDOC := pandoc
 
@@ -30,7 +31,7 @@ arxiv.tar.gz: paper.pdf # just build the paper because we want to build the .bbl
 
 %.pdf: %.tex $(DEPS)
 	$(eval SRC_$@ = $(patsubst %.tex, %, $<))
-	$(LATEX) $(SRC_$@)
+	$(LATEX) $(LATEXOPTS) $(SRC_$@)
 	$(BIBTEX) $(SRC_$@)
-	$(LATEX) $(SRC_$@)
-	$(LATEX) $(SRC_$@)
+	$(LATEX) $(LATEXOPTS) $(SRC_$@)
+	$(LATEX) $(LATEXOPTS) $(SRC_$@)
