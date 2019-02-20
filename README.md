@@ -44,6 +44,10 @@ may change with the new revisions of the paper.
 If you use this paper in academic research, you may cite the following:
 
 ```
-@article{TODO pending arxiv upload
+@article{carlini2019evaluating,
+  title={},
+  author={Carlini, Nicholas and Athalye, Anish and Papernot, Nicolas and Brendel, Wieland and Rauber, Jonas and Tsipras, Dimitris and Goodfellow, Ian and Madry, Aleksander and Kurakin, Alexey},
+  journal={arXiv preprint arXiv:1902.06705},
+  year={2019}
 }
 ```
