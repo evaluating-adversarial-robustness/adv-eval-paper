@@ -37,6 +37,8 @@ may change with the new revisions of the paper.
 
 ## Changelog
 
+2018-02-20: Explain author order (evaluating-adversarial-robustness#5)
+
 2018-02-18: Initial Revision
 
 ## Citation
