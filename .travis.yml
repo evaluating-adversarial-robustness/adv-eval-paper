@@ -6,5 +6,18 @@ addons:
     packages:
       - texlive-latex-extra
       - texlive-fonts-recommended
+
 script:
   - make paper.pdf
+
+before_deploy:
+  - git config --local user.name "Evaluating Adversarial Robustness Bot"
+  - git config --local user.email "evaluating-adversarial-robustness-bot@users.noreply.github.com"
+  - export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}
+  - git tag $TRAVIS_TAG
+deploy:
+  provider: releases
+  api_key:
+    secure: bVkv3HvxqSOoNQ8wlcYA1rxn7c61jKu013779bGWbTT5dVb40ruEQi30UcesCR0fGWDtB1Faa4Xc9ENG0N/krwkS7XYgTgtpR+L59iNENJDSu7hhOrvj/fsibDLKXccow1SSIjbLbgxA2MFWBaV6aZXX+ZzNfV/tDWu4cD7IQLoxbv/XDmoIIBPEQtB1Qcl4t3Qd464ED6/WTrEGGC3kpy6zcdSyow9RKLokhH+aaicnhyetKX8UTSxrkMUp0fZv55cyg5r4cxZ3qlNp4OKrj0iERT/izCb2EVd9F9khymT1Mqg2Qo+CG8XELS0sGrc0l2wePQHzxNwfgJYeRpxTk5fbtv4YKfSZVxbYsbGRu8hfPTg+7lETjSo+Dx1tZYMsySeHQigLZr+ceEMUcEuG/OVZTacpAXGtM3gtNOaTsN5GhcQfvBYhoINHFN5uGVuqP32QyuZwe3dIvOBZHldzhGaayqBEOWDFW4/jQRO2YuJFNPOHtYn1v9xYzemK1c5FI4QZvcOsR9z0GRcwx8M/1PG6YQP+0+RLZM5OOlwKNuG5oRlgKUJAWD1hPEU32Dl0mMzqJcDsndwhUbKVEitFbStur2OvXN8XgP12cCYVUlwe6VT7dtgXI5WBcVCJhskpj53MlWi/yEI4wnDsQ9E+GhmcR0oS3P3MhZbGnKWtv98=
+  file: paper.pdf
+  skip_cleanup: true
