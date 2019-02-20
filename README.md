@@ -30,6 +30,8 @@ We welcome any contributions to the paper through both issues and pull requests.
 
 ## Changelog
 
+2018-02-20: Explain author order (evaluating-adversarial-robustness#5)
+
 2018-02-18: Initial Revision
 
 ## Citation
