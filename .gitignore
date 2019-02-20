@@ -14,3 +14,4 @@ abstract.txt
 *.gz
 *.fls
 *.fdb_latexmk
+version.tex

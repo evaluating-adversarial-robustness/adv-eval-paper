@@ -2,7 +2,7 @@ DEPS := \
 	iclr2019_conference.sty \
 	iclr2019_conference.bst \
 	paper.bib \
-        abstract.tex
+	abstract.tex
 
 
 LATEX  := pdflatex
@@ -31,6 +31,7 @@ arxiv.tar.gz: paper.pdf # just build the paper because we want to build the .bbl
 
 %.pdf: %.tex $(DEPS)
 	$(eval SRC_$@ = $(patsubst %.tex, %, $<))
+	sh version.sh version.tex
 	$(LATEX) $(LATEXOPTS) $(SRC_$@)
 	$(BIBTEX) $(SRC_$@)
 	$(LATEX) $(LATEXOPTS) $(SRC_$@)
