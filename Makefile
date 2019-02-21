@@ -15,7 +15,7 @@ PANDOC := pandoc
 all: paper.pdf abstract.txt
 
 clean:
-	rm -rf *.aux *.log *.blg *.bbl *.ent *.out *.dvi *.ps *.pdf *.tar.gz abstract.txt
+	rm -rf *.aux *.log *.blg *.bbl *.ent *.out *.dvi *.ps *.pdf *.tar.gz abstract.txt version.tex
 
 arxiv: arxiv.tar.gz
 
