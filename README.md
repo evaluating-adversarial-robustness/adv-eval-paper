@@ -4,7 +4,7 @@ This repository contains the LaTeX source for the paper [On Evaluating Adversari
 
 ## This is a Living Document
 
-We do not intend for this to be a traditional paper where it is written once and never updated. While the fundamentals for how to evaluate adversarial robustness will not change, most of the specific advice we today on evaluating adversarial robustness may quickly become out of date. We therefore expect to update this document from time to time in order to match the currently accepted best practices in the research community.
+We do not intend for this to be a traditional paper where it is written once and never updated. While the fundamentals for how to evaluate adversarial robustness will not change, most of the specific advice we give today on evaluating adversarial robustness may quickly become out of date. We therefore expect to update this document from time to time in order to match the currently accepted best practices in the research community.
 
 ### Abstract
 
