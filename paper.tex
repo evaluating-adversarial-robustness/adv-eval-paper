@@ -15,6 +15,10 @@
 
 \newcommand\hr{\par\vspace{-.5\ht\strutbox}\noindent\hrulefill\par}
 
+\input{version}
+\pdfinfo{
+    /Revision (\version)
+}
 
 %\title{Recommendations for Evaluating \\ Adversarial Example Defenses}
 %\title{Advice on Evaluating \\ Adversarial Example Defenses}
@@ -57,7 +61,7 @@
 Please direct correspondence to the GitHub repository \\
 \url{https://github.com/evaluating-adversarial-robustness/adv-eval-paper} \\
 \noindent \\
-Last Update: 18 February, 2019. \\ %TODO CHANGE OTHER DATE TOO
+Last Update: \today\ (revision \texttt{\version}).
 \newpage
 
 \reversemarginpar
@@ -707,7 +711,7 @@ We hope this list will be taken as a collection of recommendations that may
 or may not apply to a particular defense, but have been useful in the past.
 
 This checklist is a living document that lists the most common evaluation
-flaws as of 18 February, 2019. We expect the evaluation flaws that are % TODO change other date too
+flaws as of \today. We expect the evaluation flaws that are
 common today will \emph{not} be the most common flaws in the future.
 %
 We intend to keep this checklist up-to-date with the latest recommendations

@@ -2,10 +2,11 @@ DEPS := \
 	iclr2019_conference.sty \
 	iclr2019_conference.bst \
 	paper.bib \
-        abstract.tex
+	abstract.tex
 
 
 LATEX  := pdflatex
+LATEXOPTS := -interaction nonstopmode
 BIBTEX := bibtex
 PANDOC := pandoc
 
@@ -14,7 +15,7 @@ PANDOC := pandoc
 all: paper.pdf abstract.txt
 
 clean:
-	rm -rf *.aux *.log *.blg *.bbl *.ent *.out *.dvi *.ps *.pdf *.tar.gz abstract.txt
+	rm -rf *.aux *.log *.blg *.bbl *.ent *.out *.dvi *.ps *.pdf *.tar.gz abstract.txt version.tex
 
 arxiv: arxiv.tar.gz
 
@@ -30,7 +31,8 @@ arxiv.tar.gz: paper.pdf # just build the paper because we want to build the .bbl
 
 %.pdf: %.tex $(DEPS)
 	$(eval SRC_$@ = $(patsubst %.tex, %, $<))
-	$(LATEX) $(SRC_$@)
+	sh version.sh version.tex
+	$(LATEX) $(LATEXOPTS) $(SRC_$@)
 	$(BIBTEX) $(SRC_$@)
-	$(LATEX) $(SRC_$@)
-	$(LATEX) $(SRC_$@)
+	$(LATEX) $(LATEXOPTS) $(SRC_$@)
+	$(LATEX) $(LATEXOPTS) $(SRC_$@)

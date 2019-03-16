@@ -1,10 +1,10 @@
 # On Evaluating Adversarial Robustness
 
-This repository contains the LaTeX source for the paper [On Evaluating Adversarial Robustness](paper.pdf). It is a paper written with the intention of helping everyone---from those designing their own neural networks, to those reviewing defense papers, to those just wondering what goes into a defense evaluation---learn more about methods for evaluating adversarial robustness.
+This repository contains the LaTeX source for the paper [On Evaluating Adversarial Robustness](https://github.com/evaluating-adversarial-robustness/adv-eval-paper/releases/latest/). It is a paper written with the intention of helping everyone---from those designing their own neural networks, to those reviewing defense papers, to those just wondering what goes into a defense evaluation---learn more about methods for evaluating adversarial robustness.
 
 ## This is a Living Document
 
-We do not intend for this to be a traditional paper where it is written once and never updated. While the fundamentals for how to evaluate adversarial robustness will not change, most of the specific advice we today on evaluating adversarial robustness may quickly become out of date. We therefore expect to update this document from time to time in order to match the currently accepted best practices in the research community.
+We do not intend for this to be a traditional paper where it is written once and never updated. While the fundamentals for how to evaluate adversarial robustness will not change, most of the specific advice we give today on evaluating adversarial robustness may quickly become out of date. We therefore expect to update this document from time to time in order to match the currently accepted best practices in the research community.
 
 ### Abstract
 
