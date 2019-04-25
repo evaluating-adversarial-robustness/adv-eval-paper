@@ -1270,7 +1270,7 @@ iterations.
 %
 This plots should eventually plateau; if not, the attack
 has not converged and more iterations can be used until
-it does. Plotting the adversarial loss is often more useful than plotting the attack success rate, as the former has a finer granularity and thus may reveal that the attack is still making progress even though the success rate seems to have plateaued.
+it does. Plotting the adversarial loss is often more useful than plotting the attack success rate, as the former has a finer granularity and may reveal that the attack is still making progress even though the success rate seems to have plateaued.
 The number of
 iterations necessary is generally inversely proportional to step size and
 proportional to distortion allowed.
@@ -1300,7 +1300,7 @@ compute 100 iterations of gradient descent, but not 1000. As stated in~\cite{ath
 %
 Because the threat model must not constrain the approach an
 attacker takes, it is worth evaluating against a strong attack
-with many iterations of gradient descent.
+with many iterations of gradient descent, as well as many different random restarts (to avoid converging to sub-optimal local minima~\citep{madry2017towards,mosbach2018logit}).
 
 \paragraph{Ensure doubling attack iterations does not increase attack success rate or adversarial loss.}
 %
@@ -1329,7 +1329,7 @@ This can reduce the
 distortion required to generate adversarial examples by 10\%
 \citep{carlini2017towards}, and help avoid causing gradient masking
 \citep{tramer2017ensemble,madry2017towards}.
-%
+
 Moreover, even if the attack uses sufficient iterations to converge, repeating the attack with multiple randomly chosen starting points decreases the likelihood of ending up in a sub-optimal local minima~\citep{madry2017towards,mosbach2018logit}.
 %
 Doing this
@@ -1540,7 +1540,7 @@ The model loss should be (mostly) decreasing at each iteration.
 %
 If this is not the case, a smaller step size may be helpful.
 
-Further ensure that the iterative attack is properly converging, by verifying that increasing the number of iterations or the number of random restarts have no effect on the attack success rate and model loss.
+Another issue could be that the iterative attack is not converging properly.  A useful test is to verify that increasing the number of iterations or the number of random restarts have only marginal effect on the attack success rate and model loss.
 
 \paragraph{Verify increasing the perturbation budget strictly
 increases attack success rate.}
