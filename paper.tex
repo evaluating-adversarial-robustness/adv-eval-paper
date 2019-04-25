@@ -379,6 +379,8 @@ while evaluating average-case robustness is often as simple as sampling a few
 hundred (or thousand) times from the distribution and computing the mean, such
 an approach is not possible for worst-case robustness.
 
+It is customary for defenses not to impose any computational bounds on an attacker (i.e., the above definitions of adversarial risk consider only the \emph{existence} of adversarial examples, and not the difficulty of finding them). We believe that restricting an adversary's computational power would only be interesting if we could base robustness on a cryptographic assumption (e.g., the model is robust under the assumption that the adversary cannot factor a product of large primes). We are not aware of any defense that achieves this. Stronger restrictions (e.g., the adversary is limited to attacks with $100$ iterations) are typically uninteresting in that they cannot be meaningfully enforced and there is usually no economic reason for an adversary not to spend a little more time to succeed.
+
 Finally, a common, often implicit, assumption in adversarial example
 research is that the adversary has direct access to the model's input
 features: e.g., in the image domain, the adversary directly manipulates the image pixels.
@@ -760,6 +762,7 @@ justify the decision to do so.
 \item \S\ref{sec:sanitycheck} Perform \textbf{basic sanity tests} on attack success rates.
   \begin{itemize}[leftmargin=*]
     \item Verify iterative attacks perform better than single-step attacks.
+    \item Verify that iterative-attacks use sufficient iterations and random restarts to converge. 
     \item Verify increasing the perturbation budget strictly increases attack success rate.
     \item With ``high'' distortion, model accuracy should reach levels of random guessing.% or even drop to zero.
   \end{itemize}
@@ -818,13 +821,14 @@ check they have been applied correctly.
   \end{itemize}
 \item \S\ref{sec:converge} Verify that the \textbf{attacks have converged} under the selected hyperparameters.
   \begin{itemize}[leftmargin=*]
-  \item Verify that doubling the number of iterations does not increase attack success rate.
+  \item Verify that doubling the number of iterations does not increase attack success rate nor significantly change the adversarial loss.
   \item Plot attack effectiveness versus the number of iterations.
+  \item Run attacks with multiple random starting points and retain the best one.
   \item Explore different choices of the step size or other attack hyperparameters.
   \end{itemize}
 \item \S\ref{sec:hyperparams} Carefully \textbf{investigate attack hyperparameters} and report those selected.
   \begin{itemize}[leftmargin=*]
-  \item Start search for adversarial examples at a random offset.
+  \item Start search for adversarial examples at a random offset. Try multiple random starting points for each input.
   \item Investigate if attack results are sensitive to any other hyperparameters.
   \end{itemize}
   \item \S\ref{sec:priorwork} \textbf{Compare against prior work} and explain important differences.
@@ -1261,13 +1265,12 @@ on the forward pass.
 
 On at least a few inputs, confirm
 that the number of iterations of gradient descent being performed is
-sufficient by plotting the attack success versus the number of
+sufficient by plotting the attack success and adversarial loss versus the number of
 iterations.
 %
-This plot should eventually plateau; if not, the attack
+This plots should eventually plateau; if not, the attack
 has not converged and more iterations can be used until
-it does.
-%
+it does. Plotting the adversarial loss is often more useful than plotting the attack success rate, as the former has a finer granularity and thus may reveal that the attack is still making progress even though the success rate seems to have plateaued.
 The number of
 iterations necessary is generally inversely proportional to step size and
 proportional to distortion allowed.
@@ -1293,13 +1296,13 @@ For example, in some cases even a million iterations of white-box gradient desce
 have been found necessary \citep{qian2018l2}.
 
 There are few reasonable threat models under which an attacker can
-compute 100 iterations of gradient descent, but not 1000.
+compute 100 iterations of gradient descent, but not 1000. As stated in~\cite{athalye2018obfuscated}, merely increasing the time it takes an adversary to find an adversarial example from one second to ten seconds does not constitute an increase in robustness.
 %
 Because the threat model must not constrain the approach an
 attacker takes, it is worth evaluating against a strong attack
 with many iterations of gradient descent.
 
-\paragraph{Ensure doubling attack iterations does not increase attack success rate.}
+\paragraph{Ensure doubling attack iterations does not increase attack success rate or adversarial loss.}
 %
 Because choosing any fixed bounded number of iterations can be difficult to
 generalize, one simple and useful method for determining if ``enough'' iterations
@@ -1326,6 +1329,8 @@ This can reduce the
 distortion required to generate adversarial examples by 10\%
 \citep{carlini2017towards}, and help avoid causing gradient masking
 \citep{tramer2017ensemble,madry2017towards}.
+%
+Moreover, even if the attack uses sufficient iterations to converge, repeating the attack with multiple randomly chosen starting points decreases the likelihood of ending up in a sub-optimal local minima~\citep{madry2017towards,mosbach2018logit}.
 %
 Doing this
 every time is not necessary, but doing it at least once to verify it
@@ -1534,6 +1539,8 @@ iterations for a single input.
 The model loss should be (mostly) decreasing at each iteration.
 %
 If this is not the case, a smaller step size may be helpful.
+
+Further ensure that the iterative attack is properly converging, by verifying that increasing the number of iterations or the number of random restarts have no effect on the attack success rate and model loss.
 
 \paragraph{Verify increasing the perturbation budget strictly
 increases attack success rate.}
