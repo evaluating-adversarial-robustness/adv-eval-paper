@@ -1268,7 +1268,7 @@ that the number of iterations of gradient descent being performed is
 sufficient by plotting the attack success and adversarial loss versus the number of
 iterations.
 %
-This plots should eventually plateau; if not, the attack
+These plots should eventually plateau; if not, the attack
 has not converged and more iterations can be used until
 it does. Plotting the adversarial loss is often more useful than plotting the attack success rate, as the former has a finer granularity and may reveal that the attack is still making progress even though the success rate seems to have plateaued.
 The number of
@@ -1296,7 +1296,7 @@ For example, in some cases even a million iterations of white-box gradient desce
 have been found necessary \citep{qian2018l2}.
 
 There are few reasonable threat models under which an attacker can
-compute 100 iterations of gradient descent, but not 1000. As stated in~\cite{athalye2018obfuscated}, merely increasing the time it takes an adversary to find an adversarial example from one second to ten seconds does not constitute an increase in robustness.
+compute 100 iterations of gradient descent, but not 1000. As stated in~\cite{athalye2018obfuscated}, merely increasing the time it takes an adversary to find an adversarial example (e.g., from one second to ten seconds) does not constitute an increase in robustness.
 %
 Because the threat model must not constrain the approach an
 attacker takes, it is worth evaluating against a strong attack
