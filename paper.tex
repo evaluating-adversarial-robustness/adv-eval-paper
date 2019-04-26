@@ -762,7 +762,8 @@ justify the decision to do so.
 \item \S\ref{sec:sanitycheck} Perform \textbf{basic sanity tests} on attack success rates.
   \begin{itemize}[leftmargin=*]
     \item Verify iterative attacks perform better than single-step attacks.
-    \item Verify that iterative-attacks use sufficient iterations and random restarts to converge. 
+    \item Verify that iterative-attacks use sufficient iterations to converge. 
+    \item Verify that attacks use sufficient random restarts to avoid sub-optimal local minima.
     \item Verify increasing the perturbation budget strictly increases attack success rate.
     \item With ``high'' distortion, model accuracy should reach levels of random guessing.% or even drop to zero.
   \end{itemize}
